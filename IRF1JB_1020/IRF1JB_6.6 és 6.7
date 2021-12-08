@@ -1,0 +1,28 @@
+6.6 
+/1
+Select cim From könyv;
+/2
+Select * From könyv where ar>2000;
+/3
+Select cim From könyv where ar <1000;
+/4
+Select targy From könyv;
+/5
+Select cim, ar From könyv where targy='AB';
+
+6.7
+/1
+Select Count(cim) From könyv;
+/2
+Select AVG(ar) From könyv;
+/3
+Select Min(ar) From könyv;
+/4
+Select count(cim) From könyv where targy='AB';
+/5
+Select MAX(ar) From könyv where targy='AB';
+/6
+Select Cim From könyv where ar<AVG(ar);
+/7
+Select Count(Cim) From könyv where ar<AVG(ar);
+

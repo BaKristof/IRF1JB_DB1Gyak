@@ -1,0 +1,6 @@
+insert into termekek (tkod,nev,ear,kategoria) Values
+(1,'lapát',2000,'K1'),
+(2,'seprű',4000,'K1'),
+(3,'mosogató gél',1500,'K2'),
+(4,'szappan',1000,'K2'),
+(5,'pohar',2400,'K3')

@@ -1,0 +1,33 @@
+Create Table gyarto (
+adoszam int(),
+nev char(30),
+telephely text(100),
+Primary Key adoszam
+);
+Create Table termek(
+tkod int,
+nev char(50),
+ear number(<0),
+gyarto int,
+primary key tkod,
+Foreign key(gyarto) references gyarto(adoszam)
+);
+Create Table egysegek(
+aru int,
+db int(<0)
+foreign key aru references termek(tkod)
+);
+Create Table alkatresz(
+akod int,
+nev char(50),
+primary key akod
+);
+
+Create Table komponens(
+termek int(),
+alkatresz int(),
+Foreign key termek references termek(tkod),
+Foreign key alkatresz references alkatresz(akod)
+);
+
+
