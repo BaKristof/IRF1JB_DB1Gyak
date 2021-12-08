@@ -1,0 +1,64 @@
+CREATE TABLE Diak
+(
+    Dazon  		int 		NOT NULL AUTO_INCREMENT,
+    Szulev 		Date  		NOT NUll,
+    Nev 		varchar(64) NOT NULL,
+    Neptunkod 	varchar(6),
+    primary key (Dazon)
+);
+
+CREATE TABLE Iskola
+(
+    Nev 			varchar(150) 	NOT NULL,
+    Iszam 			smallint 		NOT NULL,
+    Utca 			varchar(32)		NOT NULL,
+    ItezmenyTitulus varchar(32)		NOT NULL,
+    Dazon 			int,
+    primary key (Nev),
+    FOREIGN KEY (Dazon) REFERENCES Diak(Dazon)
+);
+
+CREATE TABLE Sportorvos
+(
+    Sazon  		int         NOT NULL AUTO_INCREMENT,
+    Iszam 		SMALLINT	NOT NULL,	
+    Utca 		varchar(32) NOT NULL,
+    Tszam 		int 		NOT NULL,
+    Nev 		varchar(64) NOT NULL,
+    Dazon 		int,
+    primary key (Sazon),
+    FOREIGN KEY (Dazon) REFERENCES Diak(Dazon)
+ --   CHECK ( Tszam <= 1000000000 )
+    
+);
+
+CREATE TABLE Edzo
+(
+    Eazon        int         NOT NULL AUTO_INCREMENT,
+    Nev  varchar(64)         NOT NULL,
+    Szulev     	 Date        NOT NULL,
+    PalyaFKezd   Date		 NOT NULL,
+    Dazon	     int,
+    primary key (Eazon),
+    FOREIGN KEY (Dazon) REFERENCES Diak(Dazon)
+);
+
+CREATE TABLE Esemeny
+(
+    Megnevezes    varchar(120)  NOT NULL,
+    Helyszin 	  varchar(64)  NOT NULL,
+    Idopont		  Time  NOT NULL,
+    ReszSzam 	  int NOT NULL,
+    primary key (Megnevezes)
+
+);
+
+CREATE TABLE Kapocs
+(
+    Megnevezes    varchar(120)  NOT NULL,
+    Dazon 		  int,
+    PontosKezd	  Time,
+    FOREIGN KEY (Megnevezes) 	REFERENCES Esemeny (Megnevezes),
+    FOREIGN KEY (Dazon) 		REFERENCES Diak(Dazon)
+);
+
